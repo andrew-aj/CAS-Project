@@ -18,7 +18,7 @@ function writeHTML() {
     myTable += "<td     style='width: 100px; text-align: right;'>---------------</td></tr>";
 
     for (var i = 0; i < 8; i++) {
-        myTable += "<tr><td style='width: 100px;'>Number " + i + " is:</td>";
+        myTable += "<tr><td style='width 100px;'>Number " + i + " is:</td>";
         myArray[i] = myArray[i].toFixed(3);
         myTable += "<td style='width: 100px; text-align: right;'>" + myArray[i] + "</td>";
         myTable += "<td style='width: 100px; text-align: right;'>" + myArray[i] + "</td></tr>";
