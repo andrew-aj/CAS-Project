@@ -32,3 +32,7 @@ function removeHTML(){
     var myTable = "";
     document.getElementById('tablePrint').innerHTML = myTable;
 }
+
+function readFile(filename){
+  
+}
