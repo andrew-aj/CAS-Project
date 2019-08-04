@@ -11,6 +11,7 @@ table, td {
 </style>
 
 {% block content %}
+<body >
     <form method="post">
         <table id="busInput" cellspacing="1" cellpadding="0">
             <tr>
@@ -21,19 +22,181 @@ table, td {
                     Bus Number
                 </td>
             </tr>
+            <tr>
+                <td>
+                    Number 1
+                </td>
+                <td>
+                    <input id=number1 name=number1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 2
+                </td>
+                <td>
+                    <input id=number2 name=number2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 3
+                </td>
+                <td>
+                    <input id=number3 name=number3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 4
+                </td>
+                <td>
+                    <input id=number4 name=number4>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 5
+                </td>
+                <td>
+                    <input id=number5 name=number5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 6
+                </td>
+                <td>
+                    <input id=number6 name=number6>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 7
+                </td>
+                <td>
+                    <input id=number7 name=number7>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 8
+                </td>
+                <td>
+                    <input id=number8 name=number8>
+                </td>
+            </tr><tr>
+                <td>
+                    Number 9
+                </td>
+                <td>
+                    <input id=number9 name=number9>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 10
+                </td>
+                <td>
+                    <input id=number10 name=number10>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 11
+                </td>
+                <td>
+                    <input id=number11 name=number11>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 12
+                </td>
+                <td>
+                    <input id=number12 name=number12>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 13
+                </td>
+                <td>
+                    <input id=number13 name=number13>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 14
+                </td>
+                <td>
+                    <input id=number14 name=number14>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 15
+                </td>
+                <td>
+                    <input id=number15 name=number15>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 16
+                </td>
+                <td>
+                    <input id=number16 name=number16>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 17
+                </td>
+                <td>
+                    <input id=number17 name=number17>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 18
+                </td>
+                <td>
+                    <input id=number18 name=number18>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 19
+                </td>
+                <td>
+                    <input id=number19 name=number19>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Number 20
+                </td>
+                <td>
+                    <input id=number20 name=number20>
+                </td>
+            </tr>
         </table>
         <button type="button" onclick="extendTable()">Extend Table</button>
-
+        <input type="submit" value="Save">
+        <!--
         <input type="submit" value="Save" onclick="combineData()">
 
         <input id="test" style="visibility: hidden" name="test" value=" {{ request.form['test'] }} ">
-        <!--
+        
         <label for="title">Title</label>
         <input name="title" id="title" value="{{ request.form['title'] }}" required>
         <label for="body">Body</label>
         <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
         <input type="submit" value="Save">-->
     </form>
+</body>
+    
     
 
 
@@ -50,7 +213,22 @@ table, td {
         
     }
 
+    function extendTable(){
+        var table = document.getElementById("busInput");
+        for(var r = 1; r<=20; r++){
+            var rows = table.rows;
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.innerHTML = "Number " + (rows.length - 1);
+            var inputdata = 'number' + (rows.length - 1);
+            console.log(typeof inputdata);
+            cell2.innerHTML = cell2.innerHTML = '<input id=inputdata name=inputdata>';
 
+        }
+    }
+
+/*
     function extendTable() {
         var table = document.getElementById("busInput");
         var table2 = table[table.length];
@@ -59,8 +237,9 @@ table, td {
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         cell1.innerHTML = "Number " + (rows.length - 1);
-        cell2.innerHTML = '<input id="test1" name="test1">';
-        //cell2.innerHTML = '<input id="test" name="test" value=" {{ request.form['test'] }} ">';
-    }
+        //cell2.innerHTML = '<input id="test1" name="test1">';
+        var inputdata = "number" + (rows.length - 1);
+        cell2.innerHTML = '<input id=inputdata name=inputdata value=" {{ request.form[inputdata] }} ">';
+    }*/
     </script>
 {% endblock %}

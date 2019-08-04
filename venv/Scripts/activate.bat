@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=C:\Users\Andrew Knee\Documents\Programming\JavaScript\S02\venv"
+set "VIRTUAL_ENV=C:\Users\Andrew Knee\Documents\Programming\CAS Project\env"
 
 if not defined PROMPT (
     set "PROMPT=$P$G"
@@ -23,7 +23,7 @@ if defined _OLD_VIRTUAL_PYTHONHOME (
 )
 
 set "_OLD_VIRTUAL_PROMPT=%PROMPT%"
-set "PROMPT=(venv) %PROMPT%"
+set "PROMPT=(env) %PROMPT%"
 
 if defined PYTHONHOME (
     set "_OLD_VIRTUAL_PYTHONHOME=%PYTHONHOME%"
