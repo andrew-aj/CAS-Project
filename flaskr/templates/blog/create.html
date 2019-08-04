@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}New Post{% endblock %}</h1>
+{% endblock %}
+
+<style>
+table, td {
+    border: 1px solid black;
+}
+</style>
+
+{% block content %}
+    <form method="post">
+        <table id="busInput" cellspacing="1" cellpadding="0">
+            <tr>
+                <td>
+                    Bus Position
+                </td>
+                <td>
+                    Bus Number
+                </td>
+            </tr>
+        </table>
+        <button type="button" onclick="extendTable()">Extend Table</button>
+
+        <input type="submit" value="Save" onclick="combineData()">
+
+        <input id="test" style="visibility: hidden" name="test" value=" {{ request.form['test'] }} ">
+        <!--
+        <label for="title">Title</label>
+        <input name="title" id="title" value="{{ request.form['title'] }}" required>
+        <label for="body">Body</label>
+        <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+        <input type="submit" value="Save">-->
+    </form>
+    
+
+
+    <script>
+    function combineData() {
+        var temp = ""
+        var table = document.getElementById("busInput");
+        for (var r = 0, n = table.rows.length; r < n; r++) {
+            var stuff = table.rows[r].cells[1].getElementsByTagName("test1").value;
+            temp = temp + " " + stuff;
+            console.log("Hello");
+        }
+        document.getElementById("test").innerHTML = temp;
+        
+    }
+
+
+    function extendTable() {
+        var table = document.getElementById("busInput");
+        var table2 = table[table.length];
+        var rows = table.rows;
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = "Number " + (rows.length - 1);
+        cell2.innerHTML = '<input id="test1" name="test1">';
+        //cell2.innerHTML = '<input id="test" name="test" value=" {{ request.form['test'] }} ">';
+    }
+    </script>
+{% endblock %}
