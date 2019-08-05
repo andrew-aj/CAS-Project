@@ -5,3 +5,5 @@ flaskr/__pycache__
 
 
 *.pyc
+
+.vscode/
