@@ -1,0 +1,7 @@
+
+venv/
+
+flaskr/__pycache__
+
+
+*.pyc
