@@ -13,35 +13,52 @@
             <header>
                 <div>
                     <h1>{{ post['title'] }}</h1>
-                    <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
+                    <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }} at {{ post['created'].strftime('%H:%M:%S') }}</div>
                 </div>
                 {% if g.user['id'] == post['author_id'] %}
                     <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
                 {% endif %}
             </header>
-            <p class="body">{{ post['number1'] }}</p>
-            <p class="body">{{ post['number2'] }}</p>
-            <p class="body">{{ post['number3'] }}</p>
-            <p class="body">{{ post['number4'] }}</p>
-            <p class="body">{{ post['number5'] }}</p>
-            <p class="body">{{ post['number6'] }}</p>
-            <p class="body">{{ post['number7'] }}</p>
-            <p class="body">{{ post['number8'] }}</p>
-            <p class="body">{{ post['number9'] }}</p>
-            <p class="body">{{ post['number10'] }}</p>
-            <p class="body">{{ post['number11'] }}</p>
-            <p class="body">{{ post['number12'] }}</p>
-            <p class="body">{{ post['number13'] }}</p>
-            <p class="body">{{ post['number14'] }}</p>
-            <p class="body">{{ post['number15'] }}</p>
-            <p class="body">{{ post['number16'] }}</p>
-            <p class="body">{{ post['number17'] }}</p>
-            <p class="body">{{ post['number18'] }}</p>
-            <p class="body">{{ post['number19'] }}</p>
-            <p class="body">{{ post['number20'] }}</p>
+            <body  onload="remove()">
+            <p class="body" id="number1">Number 1: {{ post['number1'] }}</p>
+            <p class="body" id="number2">Number 2: {{ post['number2'] }}</p>
+            <p class="body" id="number3">Number 3: {{ post['number3'] }}</p>
+            <p class="body" id="number4">Number 4: {{ post['number4'] }}</p>
+            <p class="body" id="number5">Number 5: {{ post['number5'] }}</p>
+            <p class="body" id="number6">Number 6: {{ post['number6'] }}</p>
+            <p class="body" id="number7">Number 7: {{ post['number7'] }}</p>
+            <p class="body" id="number8">Number 8: {{ post['number8'] }}</p>
+            <p class="body" id="number9">Number 9: {{ post['number9'] }}</p>
+            <p class="body" id="number10">Number 10: {{ post['number10'] }}</p>
+            <p class="body" id="number11">Number 11: {{ post['number11'] }}</p>
+            <p class="body" id="number12">Number 12: {{ post['number12'] }}</p>
+            <p class="body" id="number13">Number 13: {{ post['number13'] }}</p>
+            <p class="body" id="number14">Number 14: {{ post['number14'] }}</p>
+            <p class="body" id="number15">Number 15: {{ post['number15'] }}</p>
+            <p class="body" id="number16">Number 16: {{ post['number16'] }}</p>
+            <p class="body" id="number17">Number 17: {{ post['number17'] }}</p>
+            <p class="body" id="number18">Number 18: {{ post['number18'] }}</p>
+            <p class="body" id="number19">Number 19: {{ post['number19'] }}</p>
+            <p class="body" id="number20">Number 20: {{ post['number20'] }}</p>
+
+            <script>
+                function remove() {
+                    console.log("Hello");
+                    for(var i = 1; i < 21; i++) {
+                        var id = "number" + i;
+                        var id2 = "Number " + i + ":";
+                        var paragraph = document.getElementById(id);
+                        if(paragraph.innerText == id2) {
+                            paragraph.style.display = "none";
+                        }
+                    }
+                }
+            </script>
+            </body>
         </article>
         {% if not loop.last %}
             <hr>
         {% endif %}
     {% endfor %}
 {% endblock %}
+
