@@ -13,8 +13,8 @@ table, td {
 {% block content %}
 <body >
     <form method="post">
-        <table id="busInput" cellspacing="1" cellpadding="0">
-            <tr>
+        <table id="busInput" cellspacing="1">
+            <tr style="display: block">
                 <td>
                     Bus Position
                 </td>
@@ -22,7 +22,7 @@ table, td {
                     Bus Number
                 </td>
             </tr>
-            <tr>
+            <tr style="display: block">
                 <td>
                     Number 1
                 </td>
@@ -30,7 +30,7 @@ table, td {
                     <input id=number1 name=number1>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 2
                 </td>
@@ -38,7 +38,7 @@ table, td {
                     <input id=number2 name=number2>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 3
                 </td>
@@ -46,7 +46,7 @@ table, td {
                     <input id=number3 name=number3>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 4
                 </td>
@@ -54,7 +54,7 @@ table, td {
                     <input id=number4 name=number4>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 5
                 </td>
@@ -62,7 +62,7 @@ table, td {
                     <input id=number5 name=number5>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 6
                 </td>
@@ -70,7 +70,7 @@ table, td {
                     <input id=number6 name=number6>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 7
                 </td>
@@ -78,14 +78,15 @@ table, td {
                     <input id=number7 name=number7>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 8
                 </td>
                 <td>
                     <input id=number8 name=number8>
                 </td>
-            </tr><tr>
+            </tr>
+            <tr style="display: none">
                 <td>
                     Number 9
                 </td>
@@ -93,7 +94,7 @@ table, td {
                     <input id=number9 name=number9>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 10
                 </td>
@@ -101,7 +102,7 @@ table, td {
                     <input id=number10 name=number10>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 11
                 </td>
@@ -109,7 +110,7 @@ table, td {
                     <input id=number11 name=number11>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 12
                 </td>
@@ -117,7 +118,7 @@ table, td {
                     <input id=number12 name=number12>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 13
                 </td>
@@ -125,7 +126,7 @@ table, td {
                     <input id=number13 name=number13>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 14
                 </td>
@@ -133,7 +134,7 @@ table, td {
                     <input id=number14 name=number14>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 15
                 </td>
@@ -141,7 +142,7 @@ table, td {
                     <input id=number15 name=number15>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 16
                 </td>
@@ -149,7 +150,7 @@ table, td {
                     <input id=number16 name=number16>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 17
                 </td>
@@ -157,7 +158,7 @@ table, td {
                     <input id=number17 name=number17>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 18
                 </td>
@@ -165,7 +166,7 @@ table, td {
                     <input id=number18 name=number18>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 19
                 </td>
@@ -173,7 +174,7 @@ table, td {
                     <input id=number19 name=number19>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td>
                     Number 20
                 </td>
@@ -182,7 +183,7 @@ table, td {
                 </td>
             </tr>
         </table>
-        <button type="button" onclick="extendTable()">Extend Table</button>
+        <button type="button" onclick="unhide()">Extend Table</button>
         <input type="submit" value="Save">
         <!--
         <input type="submit" value="Save" onclick="combineData()">
@@ -201,6 +202,8 @@ table, td {
 
 
     <script>
+    var init_num = 2;
+    
     function combineData() {
         var temp = ""
         var table = document.getElementById("busInput");
@@ -226,6 +229,17 @@ table, td {
             cell2.innerHTML = cell2.innerHTML = '<input id=inputdata name=inputdata>';
 
         }
+    }
+
+    function unhide(){
+        var table = document.getElementById("busInput");
+        var row = table.rows[init_num];
+        if (row.style.display == "none") {
+            row.style.display = "block";
+        } else {
+            row.style.display = "none";
+        }
+        init_num++;
     }
 
 /*
